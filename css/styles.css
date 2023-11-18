@@ -70,7 +70,6 @@
 	padding: 0 1rem;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Poppins', sans-serif;
 }
@@ -107,7 +106,6 @@ h3 {
 }
 
 
-
 /* Navigation */
 .nav-section {
 	margin: 0;
@@ -135,8 +133,12 @@ h3 {
 	bottom: 0.25rem;
 }
 
-.mobile-nav-toggle {
+.mobile-nav-toggle2 {
 	display: none;
+}
+
+.mobile-nav-toggle2 svg.hamburger {
+	fill: var(--clr-primay-tint);
 }
 
 nav {
@@ -175,16 +177,6 @@ ul.nav-list li a:hover {
 	display: flex;;
 }
 
-/* .conatct-nav-wrapper {
-	display: flex;
-	align-items: center;
-	margin-left: 1rem;
-}
-
-.conatct-nav-wrapper .contact-nav {
-	margin-left: 0.5rem;
-} */
-
 .nav-social {
 	display: flex;
 	margin-left: 1.5rem;
@@ -208,29 +200,46 @@ ul.nav-list li a:hover {
 
 /* Media query for Navigation */
 @media (max-width: 55rem) {
-	.mobile-nav-toggle {
+	.mobile-nav-toggle2 {
 		display: flex;
 		position: absolute;
 		z-index: 100;
-		top: 1.15rem;
+		top: 0.9rem;
 		right: 1.5rem;
-		width: 1.875rem;
-		height: 1.875rem;
 		background: transparent;
 		border: none;
+	} 
+	
+	button.mobile-nav-toggle2 .line {
+		transition: 
+			y 300ms ease-in 300ms,
+			rotate 300ms ease-in,	
+			opacity 0ms 300ms;
+		transform-origin: center;
 	}
 
-	.mobile-nav-close {
-		display: none;
+	button.mobile-nav-toggle2[aria-expanded="true"] .line {
+		transition: 
+			y 300ms ease-in,
+			rotate 300ms ease-in 300ms,
+			opacity 0ms 300ms;
 	}
-
-	.mobile-nav-open.hide {
-		display: none;
+	
+	button.mobile-nav-toggle2[aria-expanded="true"] .top,
+	button.mobile-nav-toggle2[aria-expanded="true"] .bottom {
+		y: 45px;
 	}
-
-	.mobile-nav-close.show {
-		display: flex;
-		width: 1.5rem;
+	
+	button.mobile-nav-toggle2[aria-expanded="true"] .top {
+		rotate: 45deg;
+	}
+	
+	button.mobile-nav-toggle2[aria-expanded="true"] .middle {
+		opacity: 0;
+	}
+	
+	button.mobile-nav-toggle2[aria-expanded="true"] .bottom {
+		rotate: -45deg;
 	}
 
 	.primary-navigation {
@@ -253,7 +262,7 @@ ul.nav-list li a:hover {
 		animation-fill-mode: forwards;
 		opacity: 0;
 	}
-  
+
 	@keyframes fadeIn {
 		0% {
 		  opacity: 0;
@@ -262,6 +271,7 @@ ul.nav-list li a:hover {
 		  opacity: 1;
 		}
 	  }
+	  
 
 	.nav-right {
 		flex-direction: column;
@@ -269,10 +279,10 @@ ul.nav-list li a:hover {
 
 	ul.nav-list {
 		flex-direction: column;
-		font-size: var(--fs-500);
+		font-size: var(--fs-600);
 		margin-top: 2rem;
 		margin-bottom: 3.5rem;
-		line-height: 3.25rem;
+		line-height: 3.5rem;
 		color: var(--clr-accent);
 		transition: 300ms;
 	}
