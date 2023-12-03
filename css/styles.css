@@ -78,6 +78,41 @@ button {
 	font-family: 'Poppins', sans-serif;
 }
 
+
+
+/* Reveal on scroll utility classes */
+.reveal {
+	transform: translateY(80px);
+	opacity: 0;
+	transition: all 1200ms ease;
+}
+
+.reveal.revealActive {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.reveal .img-accent.left {
+	transform: translate(80px, 80px);
+	opacity: 0;
+	transition: all 2000ms ease;
+}
+
+.reveal .img-accent.right {
+	transform: translate(-80px, 80px);
+	opacity: 0;
+	transition: all 2000ms ease;
+}
+
+.reveal.revealActive .img-accent.left,
+.reveal.revealActive .img-accent.right {
+	transform: translate(0);
+	opacity: 1;
+}
+
+
+
+
 /* Headings */
 h1 {
 	font-size: var(--fs-900);
@@ -204,7 +239,7 @@ ul.nav-list li a:hover {
 		display: flex;
 		position: absolute;
 		z-index: 100;
-		top: 0.9rem;
+		top: 0.8rem;
 		right: 1.5rem;
 		background: transparent;
 		border: none;
@@ -527,11 +562,6 @@ h3.hero-callout {
 	.mission-statement-content h2 {
 		margin-top: 0;
 	}
-
-	.mission-statement-content h2,
-	.mission-statement-content p  {
-		text-align: left;
-	}
 }
 
 @media (min-width: 55rem) {
@@ -561,6 +591,11 @@ h3.hero-callout {
 
 	#mission-statement h2 {
 		margin: 0rem 0 1rem 0;
+	}
+
+	.mission-statement-content h2,
+	.mission-statement-content p  {
+		text-align: left;
 	}
 }
 
@@ -881,6 +916,7 @@ h4.testimonial-quote-name {
 }
 
 .about-us-content p {
+	margin-bottom: 1rem;
 	color: var(--clr-neutral-500);
 }
 
@@ -1357,6 +1393,7 @@ nav.nav-footer li a:hover {
 		width: min(100%, 17rem);
 	}
 }
+
 
 
 /* Success Page */
